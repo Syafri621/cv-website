@@ -3,23 +3,23 @@
 @section('title', 'Portfolio - ' . $biodata->nama_lengkap)
 
 @section('content')
-    <!-- Hero Section -->
+    <!-- Section Hero -->
     <section id="home" class="hero-section">
         <div class="container">
             <div class="row align-items-center min-vh-100">
                 <div class="col-lg-6">
                     <div class="hero-content">
-                        <h1 class="hero-title">Hi, I'm <span class="text-primary-custom">{{ $biodata->nama_lengkap }}</span></h1>
+                        <h1 class="hero-title">Hai, Saya <span class="text-primary-custom">{{ $biodata->nama_lengkap }}</span></h1>
                         <h2 class="hero-subtitle">{{ $biodata->posisi }}</h2>
                         <p class="hero-description">
                             {{ $biodata->tentang_saya }}
                         </p>
                         <div class="d-flex flex-wrap gap-3">
                             <a href="#portfolio" class="btn btn-primary-custom">
-                                <i class="fas fa-briefcase me-2"></i>View My Work
+                                <i class="fas fa-briefcase me-2"></i>Lihat Karya Saya
                             </a>
                             <a href="#contact" class="btn btn-outline-custom">
-                                <i class="fas fa-paper-plane me-2"></i>Hire Me
+                                <i class="fas fa-paper-plane me-2"></i>Hubungi Saya
                             </a>
                         </div>
                     </div>
@@ -41,10 +41,10 @@
         </div>
     </section>
 
-    <!-- About Section -->
+    <!-- Section Tentang -->
     <section id="about" class="py-5">
         <div class="container">
-            <h2 class="section-title">About Me</h2>
+            <h2 class="section-title">Tentang Saya</h2>
             <div class="row">
                 <div class="col-lg-10 mx-auto">
                     <div class="row">
@@ -53,9 +53,9 @@
                                 <div class="icon-wrapper mb-3" style="width: 70px; height: 70px; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); border-radius: 15px; display: flex; align-items: center; justify-content: center; margin: 0 auto;">
                                     <i class="fas fa-graduation-cap fa-2x text-white"></i>
                                 </div>
-                                <h5 class="fw-bold mb-2 text-light">Education</h5>
-                                <p class="text-gray">{{ $biodata->pendidikan->count() }} Degrees</p>
-                                <small class="text-primary-custom">Continuous Learner</small>
+                                <h5 class="fw-bold mb-2 text-light">Pendidikan</h5>
+                                <p class="text-gray">{{ $biodata->pendidikan->count() }} Gelar</p>
+                                <small class="text-primary-custom">Pembelajar Aktif</small>
                             </div>
                         </div>
                         <div class="col-md-4 mb-4">
@@ -63,9 +63,9 @@
                                 <div class="icon-wrapper mb-3" style="width: 70px; height: 70px; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); border-radius: 15px; display: flex; align-items: center; justify-content: center; margin: 0 auto;">
                                     <i class="fas fa-briefcase fa-2x text-white"></i>
                                 </div>
-                                <h5 class="fw-bold mb-2 text-light">Experience</h5>
-                                <p class="text-gray">{{ $biodata->pengalaman->count() }}+ Projects</p>
-                                <small class="text-primary-custom">Problem Solver</small>
+                                <h5 class="fw-bold mb-2 text-light">Pengalaman</h5>
+                                <p class="text-gray">{{ $biodata->pengalaman->count() }}+ Proyek</p>
+                                <small class="text-primary-custom">Pemecah Masalah</small>
                             </div>
                         </div>
                         <div class="col-md-4 mb-4">
@@ -73,9 +73,9 @@
                                 <div class="icon-wrapper mb-3" style="width: 70px; height: 70px; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); border-radius: 15px; display: flex; align-items: center; justify-content: center; margin: 0 auto;">
                                     <i class="fas fa-code fa-2x text-white"></i>
                                 </div>
-                                <h5 class="fw-bold mb-2 text-light">Skills</h5>
-                                <p class="text-gray">{{ $biodata->keahlian->count() }}+ Technologies</p>
-                                <small class="text-primary-custom">Tech Enthusiast</small>
+                                <h5 class="fw-bold mb-2 text-light">Keahlian</h5>
+                                <p class="text-gray">{{ $biodata->keahlian->count() }}+ Teknologi</p>
+                                <small class="text-primary-custom">Pecinta Teknologi</small>
                             </div>
                         </div>
                     </div>
@@ -84,10 +84,10 @@
         </div>
     </section>
 
-    <!-- Skills Section -->
+    <!-- Section Keahlian -->
     <section id="skills" class="py-5 skills-section">
         <div class="container">
-            <h2 class="section-title">Technical Skills</h2>
+            <h2 class="section-title">Keahlian Teknis</h2>
             <div class="row">
                 @php
                     $kategori = $biodata->keahlian->unique('kategori');
@@ -124,16 +124,16 @@
         </div>
     </section>
 
-    <!-- Portfolio Section -->
+    <!-- Section Portfolio -->
     <section id="portfolio" class="py-5 portfolio-section">
         <div class="container">
-            <h2 class="section-title text-center mb-5">My Portfolio</h2>
+            <h2 class="section-title text-center mb-5">Portfolio Saya</h2>
             
             <div class="row g-4 justify-content-center">
                 @foreach($biodata->portofolio as $portfolio)
                 <div class="col-xl-4 col-lg-6 col-md-6 mb-4">
                     <div class="portfolio-card h-100">
-                        <!-- Portfolio Image -->
+                        <!-- Gambar Portfolio -->
                         <div class="portfolio-image-wrapper">
                             @if($portfolio->id == 1 && file_exists(public_path('assets/images/portofolio/MoneySaving.jpg')))
                                 <img src="{{ asset('assets/images/portofolio/MoneySaving.jpg') }}" 
@@ -155,20 +155,20 @@
                                     <div class="overlay-actions">
                                         @if($portfolio->link)
                                         <a href="{{ $portfolio->link }}" target="_blank" class="btn btn-sm btn-light me-2">
-                                            <i class="fab fa-github me-1"></i> Code
+                                            <i class="fab fa-github me-1"></i> Kode
                                         </a>
                                         @endif
                                         <button class="btn btn-sm btn-outline-light" 
                                                 data-bs-toggle="modal" 
                                                 data-bs-target="#portfolioModal{{ $portfolio->id }}">
-                                            <i class="fas fa-eye me-1"></i> View
+                                            <i class="fas fa-eye me-1"></i> Lihat
                                         </button>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Portfolio Content -->
+                        <!-- Konten Portfolio -->
                         <div class="portfolio-content p-4">
                             <div class="d-flex justify-content-between align-items-start mb-2">
                                 <h5 class="portfolio-title mb-0">{{ $portfolio->judul }}</h5>
@@ -196,20 +196,20 @@
                                 </div>
                             </div>
                             
-                            <!-- Action Buttons -->
+                            <!-- Tombol Aksi -->
                             <div class="portfolio-actions d-flex gap-2">
                                 @if($portfolio->link)
                                 <a href="{{ $portfolio->link }}" target="_blank" 
                                    class="btn btn-primary btn-sm flex-fill d-flex align-items-center justify-content-center">
                                     <i class="fab fa-github me-2"></i> 
-                                    <span>Source Code</span>
+                                    <span>Kode Sumber</span>
                                 </a>
                                 @endif
                                 <button class="btn btn-outline-primary btn-sm flex-fill d-flex align-items-center justify-content-center"
                                         data-bs-toggle="modal" 
                                         data-bs-target="#portfolioModal{{ $portfolio->id }}">
                                     <i class="fas fa-eye me-2"></i>
-                                    <span>Details</span>
+                                    <span>Detail</span>
                                 </button>
                             </div>
                         </div>
@@ -224,7 +224,7 @@
                                 <h5 class="modal-title">{{ $portfolio->judul }}</h5>
                                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
                             </div>
-                            <div class="modal-body bg-light">
+                            <div class="modal-body bg-dark text-white">
                                 <div class="row">
                                     <div class="col-md-6">
                                         @if($portfolio->id == 1 && file_exists(public_path('assets/images/portofolio/MoneySaving.jpg')))
@@ -240,14 +240,14 @@
                                         @endif
                                     </div>
                                     <div class="col-md-6">
-                                        <h6 class="text-primary">Project Details</h6>
-                                        <p class="mb-3">{{ $portfolio->deskripsi }}</p>
+                                        <h6 class="text-primary">Detail Proyek</h6>
+                                        <p class="mb-3 text-gray">{{ $portfolio->deskripsi }}</p>
                                         
                                         <div class="project-info">
-                                            <p><strong>Year:</strong> <span class="text-primary">{{ $portfolio->tahun }}</span></p>
+                                            <p><strong>Tahun:</strong> <span class="text-primary">{{ $portfolio->tahun }}</span></p>
                                             
                                             <div class="mt-4">
-                                                <h6 class="text-dark mb-2">Technologies Used:</h6>
+                                                <h6 class="text-light mb-2">Teknologi yang Digunakan:</h6>
                                                 <div class="d-flex flex-wrap gap-2">
                                                     @foreach(($techStack[$portfolio->id] ?? ['Laravel', 'Vue.js', 'MySQL']) as $tech)
                                                     <span class="badge bg-primary">{{ $tech }}</span>
@@ -261,10 +261,10 @@
                             <div class="modal-footer bg-dark">
                                 @if($portfolio->link)
                                 <a href="{{ $portfolio->link }}" target="_blank" class="btn btn-primary">
-                                    <i class="fab fa-github me-2"></i>View Source Code
+                                    <i class="fab fa-github me-2"></i>Lihat Kode Sumber
                                 </a>
                                 @endif
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
                             </div>
                         </div>
                     </div>
@@ -274,14 +274,14 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- Section Kontak -->
     <section id="contact" class="py-5 contact-section">
         <div class="container">
-            <h2 class="section-title text-center mb-5">Get In Touch</h2>
+            <h2 class="section-title text-center mb-5">Hubungi Saya</h2>
             
             <div class="row justify-content-center">
                 <div class="col-lg-8 text-center">
-                    <p class="lead mb-5 text-gray">I'm always interested in new opportunities and exciting projects. Let's create something amazing together!</p>
+                    <p class="lead mb-5 text-gray">Saya selalu tertarik dengan peluang baru dan proyek menarik. Mari ciptakan sesuatu yang luar biasa bersama!</p>
                     
                     <div class="row g-4 justify-content-center">
                         <!-- Email -->
@@ -295,24 +295,24 @@
                             </div>
                         </div>
                         
-                        <!-- Phone -->
+                        <!-- Telepon -->
                         <div class="col-md-4">
                             <div class="contact-card text-center h-100">
                                 <div class="contact-icon-wrapper mb-3">
                                     <i class="fas fa-phone fa-2x text-primary-custom"></i>
                                 </div>
-                                <h6 class="text-light mb-2">Phone</h6>
+                                <h6 class="text-light mb-2">Telepon</h6>
                                 <a href="tel:08138568536a" class="text-gray text-decoration-none">08138568536a</a>
                             </div>
                         </div>
                         
-                        <!-- Location -->
+                        <!-- Lokasi -->
                         <div class="col-md-4">
                             <div class="contact-card text-center h-100">
                                 <div class="contact-icon-wrapper mb-3">
                                     <i class="fas fa-map-marker-alt fa-2x text-primary-custom"></i>
                                 </div>
-                                <h6 class="text-light mb-2">Location</h6>
+                                <h6 class="text-light mb-2">Lokasi</h6>
                                 <span class="text-gray">Cibadak, Sukabumi, Indonesia</span>
                             </div>
                         </div>
@@ -320,7 +320,7 @@
                     
                     <div class="mt-5">
                         <a href="mailto:syafrifaadilah2@gmail.com" class="btn btn-primary-custom btn-lg px-5 py-3">
-                            <i class="fas fa-paper-plane me-2"></i>Send Message
+                            <i class="fas fa-paper-plane me-2"></i>Kirim Pesan
                         </a>
                     </div>
                 </div>

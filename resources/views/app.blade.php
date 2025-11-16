@@ -274,7 +274,6 @@
         .portfolio-section {
             background: var(--dark);
         }
-        
 
         .portfolio-item {
             position: relative;
@@ -292,14 +291,54 @@
             box-shadow: 0 20px 40px rgba(108, 99, 255, 0.2);
         }
 
+        /* Portfolio Images */
+        .portfolio-img-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px 15px 0 0;
+            height: 200px;
+        }
+
+        .portfolio-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .portfolio-img-container:hover .portfolio-img {
+            transform: scale(1.1);
+        }
+
         .portfolio-img-placeholder {
             width: 100%;
-            height: 200px;
+            height: 100%;
             background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
             display: flex;
             align-items: center;
             justify-content: center;
             transition: transform 0.3s ease;
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(108, 99, 255, 0.9) 0%, rgba(86, 79, 216, 0.9) 100%);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            padding: 2rem;
+        }
+
+        .portfolio-img-container:hover .portfolio-overlay {
+            opacity: 1;
         }
 
         .portfolio-content {
@@ -310,6 +349,13 @@
             color: var(--light);
             margin-bottom: 0.5rem;
             font-weight: 600;
+        }
+
+        .portfolio-year {
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
         }
 
         .portfolio-content p {
@@ -413,6 +459,10 @@
                 margin: 0.5rem 0;
                 text-align: center;
             }
+            
+            .portfolio-img-container {
+                height: 180px;
+            }
         }
 
         /* Animation */
@@ -440,7 +490,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
             <a class="navbar-brand" href="#home">
-                <i class="fas fa-code me-2"></i>Pengalaman
+                <i class="fas fa-code me-2"></i>Portfolio
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
@@ -448,19 +498,19 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" href="#home">Halaman Utama</a>
+                        <a class="nav-link active" href="#home">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#about">Tentang</a>
+                        <a class="nav-link" href="#about">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#skills">Keahlian</a>
+                        <a class="nav-link" href="#skills">Skills</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#portfolio">Pengalaman</a>
+                        <a class="nav-link" href="#portfolio">Portfolio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#contact">Kontak</a>
+                        <a class="nav-link" href="#contact">Contact</a>
                     </li>
                 </ul>
             </div>

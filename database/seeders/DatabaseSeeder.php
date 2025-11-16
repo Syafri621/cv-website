@@ -107,26 +107,26 @@ class DatabaseSeeder extends Seeder
             'kategori' => 'Tools'
         ]);
 
-        // Portofolio - UPDATE LINK GITHUB DI SINI
+        // Portofolio - UPDATE dengan gambar yang sesuai
         Portofolio::create([
             'biodata_id' => $biodata->id,
-            'judul' => 'Sistem Manajemen Keuangan Pribadi',
+            'judul' => 'MoneySaving App',
             'deskripsi' => 'Aplikasi web untuk mengelola pemasukan dan pengeluaran keuangan pribadi dengan fitur laporan bulanan dan analisis keuangan',
-            'link' => 'https://github.com/liefhax/MoneySaving', // LINK DIPERBARUI
+            'link' => 'https://github.com/liefhax/MoneySaving',
             'tahun' => 2025
         ]);
 
         Portofolio::create([
             'biodata_id' => $biodata->id,
-            'judul' => 'Website Company Profile',
-            'deskripsi' => 'Website company profile responsif ',
-            'link' => 'https://github.com/syafri/company-profile',
+            'judul' => 'Personal Portfolio Website',
+            'deskripsi' => 'Website portfolio pribadi yang responsif dengan design modern dan fitur kontak terintegrasi',
+            'link' => 'https://github.com/Syafri621/cv-website',
             'tahun' => 2025
         ]);
 
         Portofolio::create([
             'biodata_id' => $biodata->id,
-            'judul' => 'Aplikasi Inventory Barang',
+            'judul' => 'Inventory Management System',
             'deskripsi' => 'Sistem manajemen inventory dengan fitur barcode scanning, laporan stok otomatis, dan notifikasi stok menipis',
             'link' => 'https://github.com/syafri/inventory-app',
             'tahun' => 2023

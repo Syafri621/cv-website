@@ -12,7 +12,7 @@ return new class extends Migration
             $table->id();
             $table->string('nama_lengkap');
             $table->string('posisi');
-            $table->string('email');
+            $table->string('email')->unique();
             $table->string('telepon');
             $table->text('alamat');
             $table->text('tentang_saya');
